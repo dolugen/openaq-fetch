@@ -1,15 +1,10 @@
+sudo: false
 language: node_js
 node_js:
 - '4.0'
 env:
   global:
   - PRODUCTION_BRANCH=master
-addons:
-  apt:
-    sources:
-    - extras-precise
-    packages:
-    - jq
 cache:
   apt: true
   directories:
