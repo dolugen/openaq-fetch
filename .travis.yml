@@ -6,6 +6,8 @@ env:
   - PRODUCTION_BRANCH=master
 addons:
   apt:
+    sources:
+    - extras-precise
     packages:
     - jq
 cache:
