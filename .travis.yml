@@ -1,22 +1,22 @@
-sudo: true
 language: node_js
 node_js:
 - '4.0'
 env:
   global:
   - PRODUCTION_BRANCH=master
+addons:
+  apt:
+    packages:
+    - jq
 cache:
   apt: true
   directories:
   - "$HOME/docker"
-  - node_modules
 services:
 - docker
 before_install:
 - chmod +x ./.build_scripts/build.sh
 - chmod +x ./.build_scripts/deploy.sh
-- sudo apt-get -qq update
-- sudo apt-get install -y jq
 install: echo no local install needed, testing on Docker
 script: touch local.env && docker-compose --project openaq run fetch npm test
 after_success:

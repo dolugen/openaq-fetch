@@ -11,7 +11,8 @@ docker tag openaq_fetch flasher/openaq-fetch:latest
 docker push flasher/openaq-fetch:latest
 
 echo "Installing aws cli"
-sudo pip install awscli
+pip install --user awscli
+export PATH=$PATH:$HOME/.local/bin
 
 echo "Running the update_task script"
 sh .build_scripts/update-task.sh
